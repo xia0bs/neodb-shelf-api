@@ -8,8 +8,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 def get_data(neo_type, neo_category):
     if neo_type not in ['wishlist', 'progress', 'complete']:
         raise ValueError('Invalid type parameter. Must be wishlist, progress, or complete')
-    # if neo_category not in ['book', 'movie', 'tv', 'music', 'game', 'podcast']:
-    #     raise ValueError('Invalid category parameter. Must be book, movie, tv, music, game, or podcast')
+     if neo_category not in ['book', 'movie', 'tv', 'music', 'game', 'podcast']:
+         raise ValueError('Invalid category parameter. Must be book, movie, tv, music, game, or podcast')
     
     url = f'https://neodb.social/api/me/shelf/{neo_type}?category={neo_category}'
     headers = {'Authorization': 'Bearer ' + os.environ.get('AUTHORIZATION'), 'Accept': 'application/json'}
